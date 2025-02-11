@@ -8,10 +8,9 @@ from modules.code_quality import check_code_quality
 from modules.code_security import check_security
 from modules.unit_tests import generate_unit_tests
 
-# Load OpenAI API Key (assumes it's set in environment)
+
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-# Streamlit UI
 st.title("💻 AI Code Assistant")
 st.write("Enhance your code with AI-powered suggestions!")
 
@@ -20,11 +19,10 @@ mode = st.selectbox("Select Mode:", ["Explain Code", "Debug Code", "Refactor Cod
                                      "Add Documentation", "Check Code Quality", 
                                      "Check Security", "Generate Unit Tests"])
 
-# User input: Code to analyze
 user_input = st.text_area("Paste your code here:")
 
 if st.button("Submit") and user_input:
-    # Call the respective function based on the selected mode
+    
     if mode == "Explain Code":
         st.text_area("AI Explanation:", explain_code(user_input), height=300)
     elif mode == "Debug Code":
